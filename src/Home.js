@@ -4,6 +4,7 @@ import React from "react";
 import { useFormik } from "formik";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function Home() {
   let Navigate = useNavigate();
@@ -143,7 +144,9 @@ function Home() {
             {" "}
             Save
           </button>
-          <button className="btn btn-outline ms-3"> Cancel</button>
+          <Link to={"/"}>
+            <button className="btn btn-outline ms-3"> Cancel</button>
+          </Link>
         </div>
         <div className="row">
           <div className="col-sm-12 col-md-6 col-lg-6 col-xl-6">
@@ -187,7 +190,6 @@ function Home() {
                     value={formik.values.FirstName}
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
-                    required="required"
                   />
                   <span style={{ color: "red" }}>
                     {formik.touched.FirstName && formik.errors.FirstName ? (

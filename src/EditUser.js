@@ -2,12 +2,17 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { useFormik } from "formik";
+
 function User() {
   let params = useParams();
-
+  const formik = useFormik({});
   const [newUser, setnewUser] = useState("");
   let fetchUser = async () => {
     let user = await axios.get(`http://localhost:3001/users/${params.id}`);
+    // formik.setValues({
+    //   FirstName: user.data.FirstName,
+    // });
     setnewUser(user.data);
     // console.log(user.data);
   };
